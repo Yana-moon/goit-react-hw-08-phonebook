@@ -4,8 +4,8 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addContacts } from 'redux/contactsSlice';
-import { getContacts } from 'redux/selectors';
+import { addContacts } from 'redux/contacts/contactsSlice';
+import { getContacts } from 'redux/contacts/selectors';
 
 import { ButtonForm, Form, InputForm, LabelForm } from './ContactForm.styled';
 
