@@ -1,26 +1,20 @@
-import { nanoid } from '@reduxjs/toolkit';
-//import PropTypes from 'prop-types';
-//import { Component } from 'react';
 import { useState } from 'react';
-
+import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContacts } from 'redux/contacts/contactsSlice';
+import { addContact } from 'redux/contacts/operations';
 import { getContacts } from 'redux/contacts/selectors';
-
 import { ButtonForm, Form, InputForm, LabelForm } from './ContactForm.styled';
 
+export const ContactForm = () => {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
 
-  export const ContactForm = ({ onClickSubmit }) => {
-    const [name, setName] = useState('');
-    const [number, setNumber] = useState('');
-    const contacts = useSelector(getContacts);
-    const dispatch = useDispatch();
-
-    //Прибираємо this, ми позакласом, тому методів НЕМАЄ!, тому або function or const 
+  // При вводі у два поля інпуту( name, number) змінюємо значення у state
 
   const handleChange = evt => {
     const { name, value } = evt.target;
-    //this.setState({ [name]: value });
     if (name === 'name') setName(value);
     else if (name === 'number') setNumber(value);
   };
@@ -29,17 +23,20 @@ import { ButtonForm, Form, InputForm, LabelForm } from './ContactForm.styled';
     let newContact = {
       number,
       name,
-      id: nanoid(),
     };
 
     const newContactName = contacts.find(
-      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+      contact =>
+        contact.name.toLowerCase() === newContact.name.toLowerCase().trim()
     );
 
     if (newContactName) {
-      return alert(`${newContact.name} is already in contacts.`);
+      return toast.error(`${newContact.name} is already in contacts.`);
     } else {
-      dispatch(addContacts(newContact));
+      dispatch(addContact(newContact));
+      toast('Success! This contact will be added to your Phonebook.', {
+        icon: '👏',
+      });
     }
   };
 
@@ -50,37 +47,35 @@ import { ButtonForm, Form, InputForm, LabelForm } from './ContactForm.styled';
     setNumber('');
   };
 
-    return (
-      <Form onSubmit={onFormSubmit}>
-        <LabelForm>
-          Name
-          <InputForm
-            type="text"
-            name="name"
-            placeholder="Enter name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            onChange={handleChange}
-            value={name}
-          />
+  return (
+    <Form onSubmit={onFormSubmit}>
+      <LabelForm>
+        Name
+        <InputForm
+          type="text"
+          name="name"
+          placeholder="Enter name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          onChange={handleChange}
+          value={name}
+        />
         </LabelForm>
-        <LabelForm>
-          Number
-          <InputForm
-            type="tel"
-            name="number"
-            placeholder="Enter number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            onChange={handleChange}
-            value={number}
-          />
-        </LabelForm>
-        <ButtonForm type="submit">Add contact</ButtonForm>
-      </Form>
-    );
-  }
-
-
+      <LabelForm>
+        Number
+        <InputForm
+          type="tel"
+          name="number"
+          placeholder="Enter number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          onChange={handleChange}
+          value={number}
+        />
+      </LabelForm>
+      <ButtonForm type="submit">Add contact</ButtonForm>
+    </Form>
+  );
+};

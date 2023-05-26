@@ -14,3 +14,8 @@ export const ListContactItem = styled.li`
   align-items: center;
   justify-content: space-between;
 `;
+
+export const AboutConacts = styled.p`
+  font-size: 16px;
+  font-weight: 500;
+`;

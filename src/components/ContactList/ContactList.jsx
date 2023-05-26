@@ -1,9 +1,12 @@
 import { ContactListItem } from 'components/ContactListItem/ContactListItem';
-//import PropTypes from 'prop-types';
+
 import { useSelector } from 'react-redux';
 import { getContacts, getFilterContacts } from 'redux/contacts/selectors';
-
-import { ListContactItem, ListContacts } from './ContactList.styled';
+import {
+  AboutConacts,
+  ListContactItem,
+  ListContacts,
+} from './ContactList.styled';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -15,22 +18,18 @@ export const ContactList = () => {
   );
 
   return (
-    <ListContacts>
-      {visibleContacts.map(contact => (
-        <ListContactItem key={contact.id}>
-          <ContactListItem contact={contact} />
-        </ListContactItem>
-      ))}
-    </ListContacts>
+    <>
+      <ListContacts>
+        {visibleContacts.map(contact => (
+          <ListContactItem key={contact.id}>
+            <ContactListItem contact={contact} />
+          </ListContactItem>
+        ))}
+      </ListContacts>
+      <AboutConacts>All contacts: {contacts.length}</AboutConacts>
+      {filter && (
+        <AboutConacts>Filtered contacts: {visibleContacts.length}</AboutConacts>
+      )}
+    </>
   );
 };
-
-
-//ContactList.propTypes = {
-  //contacts: PropTypes.arrayOf(
-   // PropTypes.shape({
-   //   id: PropTypes.string.isRequired,
-   // }).isRequired
-  //).isRequired,
- // onClickDelete: PropTypes.func.isRequired,
-//};
