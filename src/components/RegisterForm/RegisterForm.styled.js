@@ -5,7 +5,7 @@ export const RegisterWrapper = styled.div`
   height: 100vh;
   /* align-items: center; */
   justify-content: center;
-  background-color: rgba(66, 75, 92, 0.5);
+  background-color: #f2f2e1;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,8 +23,8 @@ export const RegisterFormWrapper = styled.form`
   height: 300px;
   border-radius: 3px;
   background-color: #fcf797;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.12), 0px 4px 10px rgba(0, 0, 0, 0.06),
+    1px 4px 16px rgba(0, 0, 0, 0.16);
 `;
 
 export const RegisterLabel = styled.label`

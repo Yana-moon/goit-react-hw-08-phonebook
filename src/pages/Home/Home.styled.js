@@ -29,7 +29,7 @@ export const HomeTextGo = styled.h2`
   gap: 10px;
   margin-top: 280px;
   justify-content: center;
-  color: #fcf797;
+  color: #6a08c2;
   font-size: 32px;
   font-weight: 700;
 `;
