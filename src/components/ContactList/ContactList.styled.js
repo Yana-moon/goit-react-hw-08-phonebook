@@ -15,7 +15,7 @@ export const ListContactItem = styled.li`
   justify-content: space-between;
 `;
 
-export const AboutConacts = styled.p`
+export const AboutContacts = styled.p`
   font-size: 16px;
   font-weight: 500;
 `;
