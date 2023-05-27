@@ -15,7 +15,23 @@ export const ListContactItem = styled.li`
   justify-content: space-between;
 `;
 
-export const AboutContacts = styled.p`
-  font-size: 16px;
-  font-weight: 500;
+export const Wrapper = styled.div`
+  width: 90%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
 `;
+
+export const Button = styled.button`
+border-radius: 4px;
+background-color: grey;
+opacity: 0.5;
+cursor: pointer;
+&:hover {
+  transform: scale(1.2);
+opacity: 1;
+color: red;
+}
+`

@@ -5,6 +5,7 @@ export const FormContainer = styled.div`
   flex-direction: row;
   gap: 20px;
 `;
+
 export const WrapperFormName = styled.div`
   display: flex;
   flex-direction: column;
@@ -16,7 +17,7 @@ export const WrapperFormName = styled.div`
   width: 400px;
   height: 350px;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: #fcf797;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 `;
@@ -32,19 +33,27 @@ export const WrapperFormContacts = styled.div`
   width: 400px;
   height: 350px;
   /* max-height: max-content; */
-  border-radius: 3px;
-  background-color: #ffffff;
+  border-radius: 5px;
+  background-color: #fcf797;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 `;
-
 export const ContactsWrapper = styled.div`
   display: flex;
   height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #f2f2e1;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 `;
+
+export const Message = styled.h5`
+display: flex;
+justify-content: center;
+width: 90%;
+/* background-color: #fff; */
+margin-left: auto;
+margin-right: auto;
+`
