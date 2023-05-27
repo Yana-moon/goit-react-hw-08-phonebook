@@ -11,7 +11,15 @@ export const ButtonDelete = styled.button`
   padding: 5px;
   font-weight: 500;
   font-size: 14px;
-  border-radius: 4px;
-  border-color: #0a4ff0;
-  background-color: #f9fae6;
+  border-radius: 3px;
+  border-color: #ffffff;
+  background-color: #988ef5;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  :hover,
+  :focus {
+    background-color: #ffffff;
+    border-color: #6a08c2;
+  }
 `;

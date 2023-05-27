@@ -8,7 +8,6 @@ import {
   LoginWrapper,
 } from './LoginForm.styled';
 
-//import bgLogin from '../../image/bgLogin.jpg';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();

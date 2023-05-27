@@ -19,4 +19,5 @@ export const InputFilter = styled.input`
   margin-top: 10px;
   border: 1px solid #b7b7b7;
   border-radius: 4px;
+  border-color: #6a08c2;
 `;
